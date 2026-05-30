@@ -18,6 +18,15 @@ msgstr ""
 "X-Crowdin-File-ID: 58\n"
 "Language: zh_CN\n"
 
+msgid "Dr"
+msgstr "博士"
+
+msgid "Master"
+msgstr "小先生"
+
+msgid "Mx"
+msgstr "中性称谓"
+
 #. Description of the 'Arrear Start Date' (Date) field in DocType 'Arrear'
 #: hrms/payroll/doctype/arrear/arrear.json
 msgid " Salary slips starting on or after this date will be considered for arrear calculations"
