@@ -4,6 +4,7 @@ app_publisher = "Jevons Zhou"
 app_description = "A custom app to integrate optimized language translations for Frappe apps."
 app_email = "jevons.zh@gmail.com"
 app_license = "gpl-3.0"
+app_logo_url = "/assets/frappe_translation/images/logo.png"
 
 after_install = "frappe_translation.install.after_install"
 after_migrate = "frappe_translation.install.after_migrate"
