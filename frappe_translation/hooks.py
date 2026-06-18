@@ -21,8 +21,7 @@ add_to_apps_screen = [
  		"name": "frappe_translation",
  		"logo": "/assets/frappe_translation/images/logo.png",
  		"title": "Frappe Translation",
- 		"route": "/frappe_translation",
- 		"has_permission": "frappe_translation.api.permission.has_app_permission"
+ 		"route": "/frappe_translation"
  	}
 ]
 
