@@ -92,3 +92,4 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 ### License
 
 gpl-3.0
+"# frappe_translation" 
