@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import shutil
 from pathlib import Path
 
@@ -9,7 +8,14 @@ PUBLIC_DIR = "public"
 
 
 def ensure_static_assets() -> str:
-	"""Ensure /assets/frappe_translation points to this app's public directory."""
+	"""Ensure /assets/frappe_translation contains this app's public assets.
+
+	Frappe's normal asset linker often creates symlinks. In Docker deployments, the
+	frontend container may serve sites/assets without mounting apps/, so a symlink to
+	apps/frappe_translation/public can look valid in backend but return 404 in nginx.
+	Use a real copied directory to keep the assets visible to every container that
+	shares the sites volume.
+	"""
 	source_dir = get_public_dir()
 	target_dir = get_assets_dir() / APP_NAME
 
@@ -19,8 +25,6 @@ def ensure_static_assets() -> str:
 	target_dir.parent.mkdir(parents=True, exist_ok=True)
 
 	if target_dir.is_symlink():
-		if symlink_points_to(target_dir, source_dir):
-			return str(target_dir)
 		target_dir.unlink()
 
 	if target_dir.exists():
@@ -29,19 +33,8 @@ def ensure_static_assets() -> str:
 		copy_public_assets(source_dir, target_dir)
 		return str(target_dir)
 
-	try:
-		target_dir.symlink_to(source_dir, target_is_directory=True)
-	except OSError:
-		copy_public_assets(source_dir, target_dir)
-
+	copy_public_assets(source_dir, target_dir)
 	return str(target_dir)
-
-
-def symlink_points_to(link_path: Path, expected_target: Path) -> bool:
-	try:
-		return Path(os.readlink(link_path)).resolve() == expected_target.resolve()
-	except OSError:
-		return False
 
 
 def copy_public_assets(source_dir: Path, target_dir: Path) -> None:
