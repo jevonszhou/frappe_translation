@@ -8,6 +8,7 @@ app_logo_url = "/assets/frappe_translation/images/logo.png"
 
 after_install = "frappe_translation.install.after_install"
 after_migrate = "frappe_translation.install.after_migrate"
+after_build = "frappe_translation.install.after_build"
 
 # Apps
 # ------------------
