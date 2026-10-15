@@ -1,0 +1,23 @@
+{
+  "doctype": "Workspace",
+  "name": "Frappe Translation",
+  "label": "Frappe Translation",
+  "title": "Frappe Translation",
+  "module": "Frappe Translation",
+  "app": "frappe_translation",
+  "public": 1,
+  "standard": 1,
+  "type": "Workspace",
+  "icon": "languages",
+  "is_hidden": 0,
+  "hide_custom": 0,
+  "sequence_id": 50,
+  "roles": [],
+  "links": [],
+  "charts": [],
+  "shortcuts": [],
+  "number_cards": [],
+  "quick_lists": [],
+  "custom_blocks": [],
+  "content": "[]"
+}
