@@ -4,7 +4,7 @@ app_publisher = "Jevons Zhou"
 app_description = "A custom app to integrate optimized language translations for Frappe apps."
 app_email = "jevons.zh@gmail.com"
 app_license = "gpl-3.0"
-app_logo_url = "/assets/frappe_translation/logo.png"
+app_logo_url = "/assets/frappe_translation/images/frappe-translation-logo.svg"
 app_home = "/frappe_translation"
 
 after_install = "frappe_translation.install.after_install"
@@ -20,9 +20,10 @@ after_build = "frappe_translation.install.after_build"
 add_to_apps_screen = [
 	{
 		"name": "frappe_translation",
-		"logo": "/assets/frappe_translation/logo.png",
+		"logo": app_logo_url,
 		"title": "Frappe Translation",
-		"route": "/frappe_translation"
+		"route": app_home,
+		"sequence_id": 10,
 	}
 ]
 
